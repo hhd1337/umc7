@@ -44,4 +44,7 @@ public class Restaurant extends BaseEntity {
 
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RestaurantOperatingHours> operatingHours = new ArrayList<>();
+
+
+
 }
