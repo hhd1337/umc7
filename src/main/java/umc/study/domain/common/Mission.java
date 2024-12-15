@@ -15,6 +15,10 @@ import umc.study.domain.mapping.UserMissionProgress;
 @AllArgsConstructor
 public class Mission extends BaseEntity {
 
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id") // 데이터베이스 컬럼 이름
+    private Restaurant restaurant;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

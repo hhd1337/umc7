@@ -19,3 +19,17 @@ spring:
         hbm2ddl:
           auto: update
         default_batch_fetch_size: 1000
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # Swagger 3.x와 Spring Boot 2.6+ 호환 문제 해결
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html # Swagger UI 접근 경로 설정
+    enabled: true
+  api-docs:
+    enabled: true # API 문서 활성화
+    path: /v3/api-docs # Swagger 문서의 기본 경로
+  paths-to-match: /** # 모든 API 경로 매칭
+  groups:
+    enabled: true # 그룹화 설정 활성화

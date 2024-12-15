@@ -5,10 +5,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
-import umc.study.domain.common.BaseEntity;
-import umc.study.domain.common.User;
-import umc.study.domain.common.ReviewImage;
-import umc.study.domain.common.ReviewReply;
+import umc.study.domain.common.*;
 
 @Entity
 @Getter
@@ -33,6 +30,10 @@ public class Review extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    private Restaurant restaurant;
 
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ReviewImage> reviewImages = new ArrayList<>();
