@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
+import umc.study.domain.mapping.Review;
 
 @Entity
 @Getter
@@ -45,6 +46,7 @@ public class Restaurant extends BaseEntity {
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<RestaurantOperatingHours> operatingHours = new ArrayList<>();
 
-
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<Review> reviewList = new ArrayList<>();
 
 }

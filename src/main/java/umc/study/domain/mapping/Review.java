@@ -19,7 +19,7 @@ public class Review extends BaseEntity {
     private Long id;
 
     @Column(name = "star_rating", nullable = false)
-    private Integer starRating;
+    private Float starRating;
 
     @Column(name = "review_text", columnDefinition = "TEXT", nullable = false)
     private String reviewText;

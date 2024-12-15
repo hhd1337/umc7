@@ -2,12 +2,12 @@ package umc.study.validation.annotation;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
-import umc.study.validation.validator.StoreExistValidator;
+import umc.study.validation.validator.RestaurantExistValidator;
 
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = StoreExistValidator.class)
+@Constraint(validatedBy = RestaurantExistValidator.class)
 @Target( { ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExistRestaurant {

@@ -11,7 +11,7 @@ import umc.study.validation.annotation.ExistRestaurant;
 
 @Component
 @RequiredArgsConstructor
-public class StoreExistValidator implements ConstraintValidator<ExistRestaurant,Long> {
+public class RestaurantExistValidator implements ConstraintValidator<ExistRestaurant,Long> {
     private final RestaurantQueryService storeQueryService;
 
     @Override
