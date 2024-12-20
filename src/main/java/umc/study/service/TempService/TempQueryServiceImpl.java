@@ -1,11 +1,10 @@
 package umc.study.service.TempService;
 
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import umc.study.domain.apiPayload.code.status.ErrorStatus;
-import umc.study.domain.apiPayload.exception.handler.TempHandler;
+import umc.study.apiPayload.code.status.ErrorStatus;
+import umc.study.apiPayload.exception.handler.TempHandler;
 
 @Service
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package umc.study.domain.apiPayload.code;
+package umc.study.apiPayload.code;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Builder
-public class ErrorReasonDTO {
+public class ReasonDTO {
 
     private HttpStatus httpStatus;
 
@@ -15,5 +15,4 @@ public class ErrorReasonDTO {
     private final String message;
 
     public boolean getIsSuccess(){return isSuccess;}
-
 }

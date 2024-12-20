@@ -1,4 +1,4 @@
-package umc.study.domain.apiPayload.code;
+package umc.study.apiPayload.code;
 
 public interface BaseCode {
 

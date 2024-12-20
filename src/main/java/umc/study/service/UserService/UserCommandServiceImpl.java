@@ -27,7 +27,7 @@ import umc.study.converter.UserConverter;
 import umc.study.converter.UserPreferConverter;
 
 import umc.study.apiPayload.exception.handler.FoodCategoryHandler;
-import umc.study.domain.apiPayload.code.status.ErrorStatus;
+import umc.study.apiPayload.code.status.ErrorStatus;
 import umc.study.domain.common.FoodCategory;
 import umc.study.domain.common.User;
 import umc.study.domain.mapping.UserPreferFood;

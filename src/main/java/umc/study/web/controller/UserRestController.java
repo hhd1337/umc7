@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import umc.study.converter.UserConverter;
-import umc.study.domain.apiPayload.ApiResponse;
+import umc.study.apiPayload.ApiResponse;
 import umc.study.domain.common.User;
 import umc.study.service.UserService.UserCommandService;
 import umc.study.web.dto.UserRequestDTO;

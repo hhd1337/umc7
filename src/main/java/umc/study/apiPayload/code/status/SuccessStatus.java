@@ -1,11 +1,10 @@
-package umc.study.domain.apiPayload.code.status;
+package umc.study.apiPayload.code.status;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import umc.study.domain.apiPayload.code.BaseCode;
-import umc.study.domain.apiPayload.code.ReasonDTO;
+import umc.study.apiPayload.code.BaseCode;
+import umc.study.apiPayload.code.ReasonDTO;
 
 @Getter
 @RequiredArgsConstructor
