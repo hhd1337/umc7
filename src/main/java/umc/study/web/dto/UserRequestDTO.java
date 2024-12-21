@@ -19,13 +19,16 @@
 //}
 package umc.study.web.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import umc.study.domain.enums.Role;
 import umc.study.validation.annotation.ExistCategories;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserRequestDTO {
@@ -55,9 +58,15 @@ public class UserRequestDTO {
         private String address;
 
         private String phone;
+        @NotBlank
+        @Email
+        String email;    // 이메일 필드 추가
+        @NotBlank
+        String password;    // 비밀번호 필드 추가
+        @NotNull
+        Role role;    // 역할 필드 추가
 
-        private String email;
         @ExistCategories
-        private List<Long> preferCategory; // 선호 카테고리 리스트
+        private List<Long> preferCategory= new ArrayList<>(); // 선호 카테고리 리스트
     }
 }

@@ -13,7 +13,7 @@ public class UserConverter {
 
     public static UserResponseDTO.JoinResultDTO toJoinResultDTO(User user){
         return UserResponseDTO.JoinResultDTO.builder()
-                .memberId(user.getId())
+                .userId(user.getId())
                 .createdAt(LocalDateTime.now())
                 .build();
     }
@@ -38,10 +38,14 @@ public class UserConverter {
                 .address(request.getAddress()) // 주소 설정
                 .gender(gender) // 성별 설정
                 .name(request.getName()) // 이름 설정
+                .email(request.getEmail())   // 추가된 코드
+                .nickname(request.getNickname())  // 닉네임 추가
+                .password(request.getPassword())   // 추가된 코드
                 .birthdate(LocalDate.of(request.getBirthYear(), request.getBirthMonth(), request.getBirthDay())) // 생년월일 설정
                 .userPreferFoods(new ArrayList<>()) // 사용자 선호 음식 리스트 초기화
                 .reviews(new ArrayList<>()) // 리뷰 리스트 초기화
                 .missionProgressList(new ArrayList<>()) // 미션 진행 리스트 초기화
+                .role(request.getRole())   // 추가된 코드
                 .notifications(new ArrayList<>()) // 알림 리스트 초기화
                 .build();
     }

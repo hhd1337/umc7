@@ -21,6 +21,7 @@
 package umc.study.service.UserService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.study.converter.UserConverter;
@@ -44,20 +45,20 @@ public class UserCommandServiceImpl implements UserCommandService{
 
     private final UserRepository userRepository;
     private final FoodCategoryRepository foodCategoryRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Override
     @Transactional
     public User joinUser(UserRequestDTO.JoinDto request) {
         User newUser = UserConverter.toUser(request);
+        newUser.encodePassword(passwordEncoder.encode(request.getPassword())); //10주차 비밀번호 암호화!
+
         List<FoodCategory> foodCategoryList = request.getPreferCategory().stream()
-                .map(category -> {
-                    return foodCategoryRepository.findById(category).orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND));
-                }).collect(Collectors.toList());
+                .map(category -> foodCategoryRepository.findById(category).orElseThrow(() -> new FoodCategoryHandler(ErrorStatus.FOOD_CATEGORY_NOT_FOUND))).collect(Collectors.toList());
 
-        List<UserPreferFood> memberPreferList = UserPreferConverter.toMemberPreferList(foodCategoryList);
+        List<UserPreferFood> userPreferList = UserPreferConverter.toUserPreferList(foodCategoryList);
 
-        memberPreferList.forEach(memberPrefer -> {memberPrefer.setUser(newUser);});
-
+        userPreferList.forEach(userPrefer -> {userPrefer.setUser(newUser);});
 
         return userRepository.save(newUser);
     }

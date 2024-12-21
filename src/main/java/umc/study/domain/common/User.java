@@ -7,6 +7,7 @@ import java.util.List;
 import jakarta.persistence.*;
 import lombok.*;
 import umc.study.domain.enums.Gender;
+import umc.study.domain.enums.Role;
 import umc.study.domain.enums.UserStatus;
 import umc.study.domain.mapping.UserMissionProgress;
 import umc.study.domain.mapping.UserPreferFood;
@@ -26,7 +27,7 @@ public class User extends BaseEntity {
     @Column(name = "user_name", length = 10, nullable = false)
     private String name;
 
-    @Column(name = "user_nickname", length = 20, nullable = false)
+    @Column(name = "user_nickname", length = 20)
     private String nickname;
 
     @Enumerated(EnumType.STRING)
@@ -46,8 +47,7 @@ public class User extends BaseEntity {
     @Column(columnDefinition = "VARCHAR(15) DEFAULT 'ACTIVE'")
     private UserStatus status;
 
-    @Column(name = "user_email", length = 30)
-    private String email;
+
 
     @Column(name = "user_phone", length = 30)
     private String phone;
@@ -75,4 +75,17 @@ public class User extends BaseEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Review> reviewList = new ArrayList<>();
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }
